@@ -1,81 +1,20 @@
 <!DOCTYPE html>
 <title>Riverside JS</title>
-<style type="text/css">
-  body {
-    background: #444;
-    color: #fff;
-    text-align: center;
-    font-family: Arial, "MS Trebuchet", sans-serif;
-  }
-  header {
-    height: 280px;
-    position: relative;
-  }
-  h1 {
-    position: absolute;
-    left: 50%;
-    font-size: 104px;
-    text-transform: lowercase;
-    text-shadow: 0 4px 4px rgba(0,0,0,.3);
-    transition: all 300ms;
-    -webkit-transition: all 300ms;
-    width: 940px;
-    text-align: center;
-    margin-left: -470px;
-  }
-  h1 span {
-    color: #bada55;
-  }
-  h1.hover {
-    zoom: 1.05;
-    top: -2px;
-  }
-  .container {
-    width: 940px;
-    margin: 0 auto;
-  }
-  .third {
-    width: 30%;
-    float: left;
-    margin: 5px;
-    text-align: left;
-  }
-</style>
+<link type=text/css href=./style.css rel=stylesheet />
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <div class="container">
   <header>
-    <h1>Riverside.<span>JS</span></h1>
+    <div class="spacer"></div>
+    <h1>Riverside.<span>js</span></h1>
+    <p>Welcome to riverside.js, the Riverside Javascript group.</p>
   </header>
-  <p>Welcome to riverside.js, the Riverside Javascript group.</p>
+  <article>
+  </article>
 </div>
 
 
-<script>
-  $(function() {
-    var content, html, i;
-    meetings = "<h3>Meetings</h3><p>We meet the 1st Monday of each month.</p>";
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script defer src=./script.js></script>
 
-    topics = "<h3>Topics</h3><p>Javascript. Everything Javascript.</p><p>jQuery. Prototype. Node. Raphael. Backbone. PJAX. Modernizer. Coffee Script. Eco.</p><p>And more.</p>";
-
-    description = "<h3>About Us</h3><p>Riverside's tech community is small but starting to grow. Let's get together to learn, and hack. Javascript is a huge part of both ux and server side development today. It's increasingly important to be on the cutting edge. This group is inspired by San Diego JS. Just like that group, this group exists \"to connect people of all skill levels who are working with Javascript, facilitate the flow of knowledge from those who know more to those who know less, and give an arena for sharing all about the latest and greatest javascript thing you just figured out.\" Come enjoy!</p>";
-
-
-    content = [meetings, topics, description];
-    html    = [];
-
-    i = 0;
-    while(i < 3) {
-      html.push("<div class='third'>"+content[i]+"</div>")
-      i += 1;
-    }
-    $(".container").append(html.join(""));
-
-    $("h1").hover(function() {
-      $(this).addClass("hover");
-    }, function() {
-      $(this).removeClass("hover");
-    });
-  });
-</script>
