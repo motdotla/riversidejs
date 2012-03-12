@@ -1,6 +1,6 @@
-http  = require("http");
-fs    = require('fs');
-path = require('path');
+http  = require 'http'
+fs    = require 'fs'
+path  = require 'path'
 
 PORT = process.env.PORT || 3000
 
