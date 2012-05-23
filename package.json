@@ -1,7 +1,17 @@
 {
   "name": "riversidejs",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "author": "people",
+  "main": "app.coffee",
+  "engines": {
+    "node": "0.6.18",
+    "npm":  "1.1.4"
+  },
   "dependencies": {
-    "coffee-script": "latest"
+    "coffee-script"     : "latest",
+    "connect-assets"    : "latest",
+    "express"           : "2.5.9",
+    "jade"              : "latest",
+    "stylus"            : "latest"
   }
 }

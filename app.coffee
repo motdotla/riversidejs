@@ -1,65 +1,24 @@
-http  = require 'http'
-fs    = require 'fs'
-path  = require 'path'
+express = require 'express'
+http    = require 'http'
+fs      = require 'fs'
+path    = require 'path'
 
 PORT = process.env.PORT || 3000
 
-fs.readFile 'index.html', 'utf8', (err,html) ->
-  return console.log(err) if err
+# ==================================================
+# EXPRESS APP SETUP
+# ==================================================
+app     = express.createServer()
+app.configure ->
+  app.set 'views', __dirname + "/views"
+  app.use express.bodyParser()
+  app.use express.static(__dirname + "/public")
+  app.use require('connect-assets')()
 
-  console.log('Starting Up')
+# ==================================================
+# EXPRESS ROUTES
+# ==================================================
+app.get '/', (req, res) -> 
+  res.render 'index.jade'
 
-  http.createServer((req, res) ->
-
-    filePath = '.' + req.url
-
-    filePath = './index.html' if filePath is './'
-        
-    extname = path.extname filePath
-    
-    switch extname
-
-      when '.js' then contentType = 'text/javascript' 
-      
-      when '.css' then contentType = 'text/css'
-      
-      when '.jpg' then contentType = 'image/jpg'
-      
-      when '.gif' then contentType = 'image/gif'
-      
-      when '.png' then contentType = 'image/png'
-
-      when '.ico' then contentType = 'image/ico'
-      
-      else
-        contentType = 'text/html;charset=UTF-8'
-
-    console.log(filePath, contentType)
-
-    path.exists filePath, (exist) ->
-
-      if exist 
-
-        fs.readFile filePath, (error, content) ->
-
-          if error
-
-            res.writeHead 500
-
-            res.end
-
-          else
-     
-            res.writeHead 200,
-              "Content-Type" : contentType
-
-            res.end content, 'utf-8'
-      else
-
-      	res.writeHead 404
-
-      	res.end
-
-  ).listen PORT, "0.0.0.0"
-
-console.log "Server running at http://localhost:#{PORT}/"
+app.listen 3000, -> console.log "server is starting on port: 3000"

@@ -1,0 +1,18 @@
+doctype 5
+html(lang='en')
+head
+  meta(charset='utf-8')
+  title Riverside JavaScript
+  meta(name='description', content='Join the growing Riverside tech community!')
+  meta(name='author', content='Scott Motte')
+  // Le Styles 
+  != css('application')
+
+  // Zee Javascriptz
+  // != js('application')
+  
+  body(data-spy='scroll', data-target='.subnav', data-offset='50')
+    - if (typeof(header) != 'undefined')
+      != header
+    #main.container!= body
+    // != partial('partials/_gauges')
