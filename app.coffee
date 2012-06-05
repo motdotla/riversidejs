@@ -21,6 +21,7 @@ app.configure ->
 # ==================================================
 class Member
   constructor: ->
+    
   @all: ->
     size = '16'
 
