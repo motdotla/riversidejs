@@ -15,18 +15,22 @@
             li Give an arena for sharing all about the latest and greatest javascript thing you just figured out
     .span1 &nbsp;
     .span4
-      h3 Members
+      .sidebar
+        p
+          a(href="https://riverside.campfirenow.com/a3544") Chat as a guest
+        h3 Active Members
 
-      ul.unstyled.members
-        - for member in members
-          li
-            - if (!!member.link)
-              a(href=member.link)
+        ul.unstyled.members
+          - for member in members
+            li
+              - if (!!member.link)
+                a(href=member.link)
+                  img.gravatar(src=member.gravatar)
+                  span.name= member.name
+              - else
                 img.gravatar(src=member.gravatar)
-                span.name= member.name
-            - else
-              img.gravatar(src=member.gravatar)
-              span.name= member.name   
+                span.name= member.name   
+          li ....and <a href="http://www.meetup.com/riversidejs/members">more</a>
 
 
   .row.who-what-when-where
