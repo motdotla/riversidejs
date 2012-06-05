@@ -21,4 +21,5 @@ app.configure ->
 app.get '/', (req, res) -> 
   res.render 'index.jade'
 
-app.listen 3000, -> console.log "server is starting on port: 3000"
+port  = process.env.PORT or 3000
+app.listen port, -> console.log "server is starting on port: #{port}"
