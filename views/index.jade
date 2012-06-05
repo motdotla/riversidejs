@@ -13,6 +13,22 @@
             li To connect people of all skill levels who are working with JavaScript
             li Facilitate the flow of knowledge from those who know more to those who know less
             li Give an arena for sharing all about the latest and greatest javascript thing you just figured out
+    .span1 &nbsp;
+    .span4
+      h3 Members
+
+      ul.unstyled.members
+        - for member in members
+          li
+            - if (!!member.link)
+              a(href=member.link)
+                img.gravatar(src=member.gravatar)
+                span.name= member.name
+            - else
+              img.gravatar(src=member.gravatar)
+              span.name= member.name   
+
+
   .row.who-what-when-where
     .span1 &nbsp;
     .span6
@@ -38,4 +54,4 @@
         li Phonegap
         li ..and more!
 
-      p &nbsp;
+      p &nbsp;    
