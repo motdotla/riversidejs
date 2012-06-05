@@ -23,10 +23,15 @@ app.get '/', (req, res) ->
   size = '16'
   members = [
     {name: "Scott Motte", link: "http://scottmotte.com", gravatar: gravatar.url("scott@scottmotte.com", {s: size, d: 'retro'}) },
-    {name: "Jacob Lowe", link: "http://redeyeoperations", gravatar: gravatar.url("jacoblowe2.0@gmail.com", {s: size, d: 'retro'}) },
-    {name: "Landon Burch", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})}
+    {name: "Jacob Lowe", link: "http://redeyeoperations.com", gravatar: gravatar.url("jacoblowe2.0@gmail.com", {s: size, d: 'retro'}) },
+    {name: "Landon Burch", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
+    {name: "Gary Gossett", link: "", gravatar: gravatar.url("garygossett11@gmail.com", {s: size, d: 'retro'})},
+    {name: "Ben Gullotti", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
+    {name: "Jean Wu", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})}
   ]
 
-  res.render 'index.jade', { members: members }
+  
+
+  res.render 'index.jade', { members: members.sort((a, b) -> return a.name > b.name ? 1 : -1) }
 
 app.listen PORT, -> console.log "server is starting on port: #{PORT}"
