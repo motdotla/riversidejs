@@ -33,7 +33,7 @@ class Member
       {name: "Ben Gullotti", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
       {name: "Jean Wu", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
       {name: "David Gadea", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
-      {name: "Dave Rugh", link: "", gravatar: gravatar.url("dave.rugh@gmail.com", {s: size, d: 'retro'})},
+      {name: "Dave Rugh", link: "http://about.me/dr3x", gravatar: gravatar.url("dave.rugh@gmail.com", {s: size, d: 'retro'})},
       {name: "Sean Walker", link: "http://swlkr.com/", gravatar: gravatar.url("swlkr@me.com", {s: size, d: 'retro'})},
       {name: "Serene", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
       {name: "Leo Lutz", link: "http://leolutz.com", gravatar: gravatar.url("leo@leolutz.com", {s: size, d: 'retro'})},
