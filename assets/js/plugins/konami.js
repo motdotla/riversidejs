@@ -8,7 +8,6 @@
     $.fn.konami = function(f) {
         if (typeof f == 'function') callback = f;
         return this.keydown(function(e) {
-            console.log(e.keyCode)
             i = (e.keyCode == code[i]) ? i + 1 : 0;
             if (i == 10) { callback(); i = 0; }
         });
