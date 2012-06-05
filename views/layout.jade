@@ -9,10 +9,10 @@ head
   != css('application')
 
   // Zee Javascriptz
-  // != js('application')
+  != js('application')
   
   body(data-spy='scroll', data-target='.subnav', data-offset='50')
     - if (typeof(header) != 'undefined')
       != header
     #main.container!= body
-    // != partial('partials/_gauges')
+    != partial('partials/_gauges')
