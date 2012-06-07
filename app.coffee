@@ -37,7 +37,7 @@ class Member
       {name: "Sean Walker", link: "http://swlkr.com/", gravatar: gravatar.url("swlkr@me.com", {s: size, d: 'retro'})},
       {name: "Serene", link: "", gravatar: gravatar.url("", {s: size, d: 'retro'})},
       {name: "Leo Lutz", link: "http://leolutz.com", gravatar: gravatar.url("leo@leolutz.com", {s: size, d: 'retro'})},
-      {name: "Helior Colorado", link: "http://activelamp.com", gravatar: gravatar.url("helior@activelamp.com", {s: size, d: 'retro'})},
+      {name: "Helior Colorado", link: "http://drupal.org/user/333731", gravatar: gravatar.url("helior@activelamp.com", {s: size, d: 'retro'})},
       {name: "Dave Liu", link: "", gravatar: gravatar.url("yliu037@ucr.edu", {s: size, d: 'retro'})},
       {name: "Will VanOosting", link: "http://dutchmanwebdesign.com", gravatar: gravatar.url("will@dutchmanwebdesign.com", {s: size, d: 'retro'})}
     ]
