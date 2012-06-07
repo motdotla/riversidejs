@@ -136,7 +136,7 @@ body {
   font-size: 13px;
   line-height: 18px;
   color: #333333;
-  background-color: #fdfdfd;
+  background-color: #ffffff;
 }
 a {
   color: #0088cc;
@@ -3987,32 +3987,4 @@ a.thumbnail:hover {
 }
 .invisible {
   visibility: hidden;
-}
-.well{
-  position: relative;
-}
-
-.event-data{
-  margin: -15px;
-  border-radius: 4px;
-  padding: 5px;
-  background-color: rgba(255,255,255,.8);
-  display: inline-block;
-}
-
-.rsvp-yes{
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  height: 25px;
-  text-align: center;
-  line-height: 25px;
-  background-color: rgb(255,255,255);
-  box-shadow: 0px 1px 1px rgba(0,0,0,.3);
-  border-radius: 25px;
-  padding: 0 20px;
-}
-
-.sidebar{
-  position: fixed;
 }
