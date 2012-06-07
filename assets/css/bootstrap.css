@@ -3992,6 +3992,14 @@ a.thumbnail:hover {
   position: relative;
 }
 
+.event-data{
+  margin: -15px;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: rgba(255,255,255,.8);
+  display: inline-block;
+}
+
 .rsvp-yes{
   position: absolute;
   bottom: 10px;

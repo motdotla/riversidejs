@@ -31,7 +31,7 @@ jQuery(function($) {
             $('.event-'+ i)
               .css('background', 'url(' + img + ') top right no-repeat')
               .find('.meta')
-              .append(' | <a href="' + link + '">View Larger Map</a>');
+              .append(' | <a href="' + link + '">Larger Map</a>');
           });
 
       },
@@ -98,10 +98,13 @@ jQuery(function($) {
 
         // our opening div tag
         html.push('<div class="event-' + i + ' well">');
+        //push a wrapper around data
+        html.push('<div class="event-data">');
         //push time 
         html.push(build.parseTime(next.time));
         //push address after + button to event
         html.push(address + '<br><span class="meta"><a href="' + next.event_url + '">More Details</a></span>');
+        html.push('</div>');
         //How many people have RSVPed
         html.push('<div class="rsvp-yes">' + next.yes_rsvp_count);
         html.push((next.yes_rsvp_count >= 2) ? ' People are going!' : ' Person is going');
