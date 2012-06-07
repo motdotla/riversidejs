@@ -8,9 +8,6 @@ head
   meta(name='author', content='Scott Motte')
   // Le Styles 
   != css('application')
-
-  // Zee Javascriptz
-  != js('application')
   
   body(data-spy='scroll', data-target='.subnav', data-offset='50')
     - if (typeof(header) != 'undefined')
@@ -18,4 +15,5 @@ head
     #main.container!= body
     != partial('partials/_gauges')
 
-    script(src="/javascripts/script.js", defer)
+    // Zee Javascriptz
+    != js('application')
