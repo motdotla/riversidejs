@@ -94,8 +94,6 @@ jQuery(function($) {
         //Clean out html array
         html.length = 0;
 
-        console.log(next);
-
         // our opening div tag
         html.push('<div class="event-' + i + ' well">');
         //push a wrapper around data
