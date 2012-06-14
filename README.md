@@ -1,4 +1,6 @@
-# RiversideJS
+# RiversideJS 
+
+[Riverside JS](http://riversidejs.org)
 
 ## Booting
 
