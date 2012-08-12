@@ -3,6 +3,8 @@ gravatar    = require 'gravatar'
 http        = require 'http'
 fs          = require 'fs'
 path        = require 'path'
+#meetup      = require('./meetup-datasource.js').Meetup
+#riversidejs = new meetup('riversidejs')
 
 PORT = process.env.PORT || 3000
 
@@ -54,6 +56,8 @@ class Member
 # EXPRESS ROUTES
 # ==================================================
 app.get '/', (req, res) -> 
+  #riversidejs.getEvents 2, (events) ->
+    #console.log events;
   res.render 'index.jade', { members: Member.all_alphabetical() }
 
 app.listen PORT, -> console.log "server is starting on port: #{PORT}"
