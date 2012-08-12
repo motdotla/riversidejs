@@ -38,7 +38,8 @@ jQuery(function($) {
       //Parse time from epoch to UTC to readable
       parseTime : function(time){
         // -28800000 is the utc offset to pacific standard time
-        var d = new Date(time - 28800000), day, date, month, hour, minute, p, end, year, arr = [];
+        // adding a hour to offset to right time
+        var d = new Date(time - 25200000), day, date, month, hour, minute, p, end, year, arr = [];
         //Time is a pain in the arse
         //To UTC
         d = (d !== null) ? d = d.toUTCString() : {};
