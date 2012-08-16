@@ -3,8 +3,8 @@ gravatar    = require 'gravatar'
 http        = require 'http'
 fs          = require 'fs'
 path        = require 'path'
-#meetup      = require('./meetup-datasource.js').Meetup
-#riversidejs = new meetup('riversidejs')
+meetup      = require('./meetup-datasource.js').Meetup
+riversidejs = new meetup('riversidejs')
 
 PORT = process.env.PORT || 3000
 
@@ -56,8 +56,11 @@ class Member
 # EXPRESS ROUTES
 # ==================================================
 app.get '/', (req, res) -> 
-  #riversidejs.getEvents 2, (events) ->
-    #console.log events;
-  res.render 'index.jade', { members: Member.all_alphabetical() }
+  # need to set up middleware so we dont have to request new data every request
+  riversidejs.getEvents 2, (events) ->
+    res.render 'index.jade', { members: Member.all_alphabetical(), events : events.results}
+
+app.get '/jobs', (req, res) ->
+  res.send '<h1>Coming Soon!</h1>'
 
 app.listen PORT, -> console.log "server is starting on port: #{PORT}"

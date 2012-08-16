@@ -6,49 +6,59 @@
 
 var Meetup  = function(group){
     this.group      = group;
-    this.url_base   = 'https://api.meetup.com';
-    this.key        = process.env.MEETUPKEY || '15865a185323203c58305f1a7b216c';
+    this.url_base   = 'api.meetup.com';
+    //Private Variable? - Sortof
+    var key         = process.env.MEETUPKEY || '15865a185323203c58305f1a7b216c';
+    // Privledged Function
+    this.getKey     = function(){
+        return key;
+    }
 },
-    http    = require('http');
+    https    = require('https');
 
 /* 
- * @method  _request            - sends request to meetup.com's api 
- * @param   path    String      - the suffix of the url
- * @param   cb      Function    - callback function
+ * @method  _request                - sends request to meetup.com's api 
+ * @param   path        String      - the suffix of the url
+ * @param   callback    Function    - callback function
  */
 
-Meetup.prototype._request = function(path, cb){
+Meetup.prototype._request = function(path, callback){
     var options = {
-        host    : this.url_base,
-        port    : 80,
+        hostname: this.url_base,
+        port    : 443,
         path    : path,
-        method  : 'GET',
-        headers : {
-            'Content-Type' : 'application/json'
-        }
-    }
+        method  : 'GET'
+    },
 
-    http.request(options, function(res){
-        res.setEncoding('utf-8');
-        res.on('data', cb);
-    })  
+    request = https.request(options, function(response){
+        response.setEncoding('utf8');
+        response.on('data', function(chunk){
+            console.log(chunk);
+            callback(chunk);
+        })
+    });  
+
+    request.on('error', function(error){
+        console.log(error);
+        callback({statusCode: 500});
+    });
+    request.end();
 }
 
 /* 
  * @method  getEvents               - get events for meetup
  * @param   number      Interger    - number of events to get
- * @param   cb          Function    - callback function
+ * @param   callback    Function    - callback function
  */
 
-Meetup.prototype.getEvents = function(number, cb){
-    var path = '/2/events/';
+Meetup.prototype.getEvents = function(number, callback){
+    var path = '/2/events';
+    path += '?key='             + this.getKey();
+    path += '&sign=true';
+    path += '&group_urlname='   + this.group;
+    path += '&page='            + number;
 
-    path += '?sign=true';
-    path += '&group_urlname=' + this.group;
-    path += '&page=' + number;
-    path += '&key=' + this.key;
-
-    this._request(path, cb);
+    this._request(path, callback);
     
 }
 
