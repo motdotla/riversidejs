@@ -1,0 +1,25 @@
+div(class='well event event-' + i, itemscope='', itemtype="http://data-vocabulary.org/Event", data-venue=JSON.stringify(event.venue))
+	div.event-data(data-eventtimeiso=event.time_)
+		span.time(data-time=event.time, itemprop="startDate", datetime=event.time_) Getting Time...
+		br
+		span.location(itemprop="location", itemscope='', itemtype="http://data-vocabulary.org/​Organization")
+			span.venue-name(itemprop="name")= event.venue.name
+			br
+			span.address(itemprop="address", itemscope='', itemtype="http://data-vocabulary.org/Address")
+				span.street(itemprop="street-address")= event.venue.address_1 
+				br
+				span.city(itemprop="locality")= event.venue.city
+				span , 
+				span.state(itemprop="region")=event.venue.state 
+				span.zip= ' ' + event.venue.zip
+			span(itemprop="geo", itemscope='', itemtype="http://data-vocabulary.org/​Geo")
+				meta(itemprop="latitude", content=event.lat)
+				meta(itemprop="longitude", content=event.lon)
+		br
+		span.meta
+			a.meetup-link(href=event.event_url, itemprop="url") More Details
+			meta(itemprop="description", content=event.description)
+			meta(itemprop="eventType", content="Meetup")
+	div.rsvp-yes
+		span.number= event.yes_rsvp_count + ' ' 
+		span.going= (event.yes_rsvp_count >= 2) ? 'People are going!' : 'Person is going'

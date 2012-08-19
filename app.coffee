@@ -58,7 +58,8 @@ class Member
 app.get '/', (req, res) -> 
   # need to set up middleware so we dont have to request new data every request
   riversidejs.getEvents 2, (events) ->
-    res.render 'index.jade', { members: Member.all_alphabetical(), events : events.results}
+    #console.log(events);
+    res.render 'index.jade', { members: Member.all_alphabetical(), events : events}
 
 app.get '/jobs', (req, res) ->
   res.send '<h1>Coming Soon!</h1>'

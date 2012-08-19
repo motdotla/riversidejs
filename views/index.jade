@@ -36,7 +36,6 @@
                 span.name= member.name   
           li ....and <a href="http://www.meetup.com/riversidejs/members">more</a>
 
-
   .row.who-what-when-where
     .span1 &nbsp;
     .span6
@@ -46,6 +45,9 @@
       p We meet, the <a href="http://meetup.com/riversidejs">1st Monday of each month</a>.
 
       h3 Upcoming Meetups
+
+      each event, i in events
+        include events/single
 
       p.upcoming-meetups
 
