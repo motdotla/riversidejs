@@ -74,6 +74,7 @@ Meetup.prototype.getEvents = function(number, callback){
 
         for(var i in events){
             events[i].time_ = that.convertToISO(events[i].time, events[i].utc_offset);
+            events[i].event_url = '/events/' + events[i].id;
             //console.log(events[i].time_);
         }
 

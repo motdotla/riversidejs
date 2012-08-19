@@ -64,4 +64,7 @@ app.get '/', (req, res) ->
 app.get '/jobs', (req, res) ->
   res.send '<h1>Coming Soon!</h1>'
 
+app.get '/events/:id', (req, res) ->
+  res.redirect('http://meetup.com/riversidejs/events/' + req.params.id)
+
 app.listen PORT, -> console.log "server is starting on port: #{PORT}"

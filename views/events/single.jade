@@ -1,6 +1,8 @@
 div(class='well event event-' + i, itemscope='', itemtype="http://data-vocabulary.org/Event", data-venue=JSON.stringify(event.venue))
-	div.event-data(data-eventtimeiso=event.time_)
-		span.time(data-time=event.time, itemprop="startDate", datetime=event.time_) Getting Time...
+	div.event-data
+		strong.event-title(itemprop="summary")= event.name
+		br
+		span.time(data-time=event.time, itemprop="startDate", content=event.time_) Getting Time...
 		br
 		span.location(itemprop="location", itemscope='', itemtype="http://data-vocabulary.org/​Organization")
 			span.venue-name(itemprop="name")= event.venue.name
