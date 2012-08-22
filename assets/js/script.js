@@ -75,6 +75,18 @@ jQuery(function($) {
         arr.push(time + '-' + end);
         //Return String
         return arr.join('');
+      },
+      members : function(callback){
+        $.ajax({
+          url: '/api/v0/members.json',
+          type: 'get',
+          dataType: 'json', 
+          success: function(res){
+            if(res.success){
+              callback(res.members);
+            }
+          }
+        });
       }
 
     }, 
@@ -85,11 +97,28 @@ jQuery(function($) {
             venue = that.data().venue,
             time = that.find('.time');
 
-            console.log(venue);
+            //console.log(venue);
 
             build.image(venue, i);
             time.html(build.parseTime(time.data().time));
-      })
+      });
+
+      build.members(function(res){
+
+        var memberlist = $('.members');
+        var members = _.sortBy(res, function(member){ return -member.activity; });
+
+        for(var i in members){
+          if (i < 15) {
+            var member = members[i];
+
+            if(member.photo !== null)
+              memberlist.append('<li><img class="gravatar" src=' + member.photo + ' /><span class="name">' + member.name + '</span></li>');
+          }
+        }
+
+        memberlist.append('<li>....and <a href="http://www.meetup.com/riversidejs/members">more</a></li>');
+      });
 
     }());
 

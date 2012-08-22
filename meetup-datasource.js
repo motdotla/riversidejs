@@ -84,4 +84,34 @@ Meetup.prototype.getEvents = function(number, callback){
     
 }
 
+/* @method getMember
+ *
+ * @param 
+ */
+
+Meetup.prototype.getMembers = function(callback){
+    var path    = '/2/members',
+        that    = this,
+        members = [];
+
+    path += '?group_urlname='   + this.group;
+    path += '&key='             + this.getKey();
+
+    this._request(path, function(res){
+
+        for(var i in res){
+
+            var member = res[i];
+
+            members.push({
+                name    : member.name, 
+                photo   : (typeof member.photo === 'undefined') ? null : member.photo["thumb_link"],
+                activity: member.visited
+            });
+        }
+
+        callback(members);
+    })
+}
+
 exports.Meetup = Meetup;

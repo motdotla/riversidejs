@@ -59,12 +59,16 @@ app.get '/', (req, res) ->
   # need to set up middleware so we dont have to request new data every request
   riversidejs.getEvents 2, (events) ->
     #console.log(events);
-    res.render 'index.jade', { members: Member.all_alphabetical(), events : events}
+    res.render 'index.jade', {events : events}
 
 app.get '/jobs', (req, res) ->
   res.send '<h1>Coming Soon!</h1>'
 
 app.get '/events/:id', (req, res) ->
   res.redirect('http://meetup.com/riversidejs/events/' + req.params.id)
+
+app.get '/api/v0/members.json', (req, res) ->
+  riversidejs.getMembers (members) ->
+    res.json({success: true, members: members});
 
 app.listen PORT, -> console.log "server is starting on port: #{PORT}"
