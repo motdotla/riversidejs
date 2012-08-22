@@ -10,7 +10,7 @@
   "dependencies": {
     "request"		: "latest",
     "coffee-script"     : "latest",
-    "connect-assets"    : "latest",
+    "connect-assets"    : "2.x.x",
     "express"           : "2.5.9",
     "gravatar"          : "latest",
     "jade"              : "latest",
