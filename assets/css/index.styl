@@ -15,6 +15,9 @@ h2, h3
 h2 
   margin: 20px 0 10px 0;
 
+  i
+    margin: 7px 10px 0 0;
+
 a 
   text-decoration: underline;
 
@@ -34,9 +37,24 @@ a
   margin-top: 10px;
   position: fixed;
 
+  h3
+    background: #333;
+    color: #fefefe;
+    padding: 5px 10px;
+    border-radius: 2px;
+
+    i
+      color: #fff;
+      margin: 5px 10px 0 0;
+
+  .members
+    margin-top: 10px;
+
   .members li 
-    margin-top: 5px;
+    margin-top: 0px;
     display: block;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ededed; 
 
     a 
       color: #333;
@@ -49,7 +67,17 @@ a
       -webkit-border-radius: 3px;
       -moz-border-radius: 3px;
       border-radius: 3px;
-    
+
+  .chat
+
+    background: #cfcfc;
+    padding: 5px 0;
+
+    i
+      color: #333;
+      text-shadow: 0px 1px 0px #fff;
+      text-decoration: none;
+      margin: 2px 5px;
 
 
 .event-data
@@ -71,6 +99,12 @@ a
   box-shadow: 0px 1px 1px rgba(0,0,0,.3);
   border-radius: 25px;
   padding: 0 20px;
+
+  i
+    margin: 2px 5px 0 -10px;
+
+
+  
   
 
 // mobile phones dont like sticky stuff
@@ -79,11 +113,18 @@ a
   .sidebar
     position: relative;
 
-    li
+    .members li
       float: left;
+      padding: 2px;
 
       span
         display: none;
+
+    .chat
+
+      clear:both;
+
+      display: block;
 
 
 

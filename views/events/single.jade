@@ -23,5 +23,6 @@ div(class='well event event-' + i, itemscope='', itemtype="http://data-vocabular
 			meta(itemprop="description", content=event.description)
 			meta(itemprop="eventType", content="Meetup")
 	div.rsvp-yes
+		i(class=(event.yes_rsvp_count >= 2) ? 'icon-group' : 'icon-user')
 		span.number= event.yes_rsvp_count + ' ' 
 		span.going= (event.yes_rsvp_count >= 2) ? 'People are going!' : 'Person is going'
