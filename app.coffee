@@ -5,6 +5,7 @@ fs          = require 'fs'
 path        = require 'path'
 meetup      = require('./meetup-datasource.js').Meetup
 groupname   = 'riversidejs'
+cron        = require('cron').CronJob;
 group = new meetup(groupname)
 PORT = process.env.PORT || 3000
 
@@ -21,6 +22,19 @@ group.getGroupInfo (info) ->
   #make a fake locals object for now
   app.locals.info = info;
 
+# ==================================================
+# Cron Job to update group info
+# ==================================================
+
+job = new cron({
+  cronTime: '00 30 11 * * 1-5'
+  onTick: ->
+    group.getGroupInfo (info) ->
+      app.locals.info = info;
+  start: false
+  timeZone: "America/Los_Angeles"
+});
+job.start();
 
 app.configure ->
   app.set 'views', __dirname + "/views"

@@ -8,7 +8,9 @@
     "npm"		:  "1.1.4"
   },
   "dependencies": {
-    "request"		: "latest",
+    "request"		        : "latest",
+    "cron"              : "latest",
+    "time"              : "latest",
     "coffee-script"     : "latest",
     "connect-assets"    : "2.x.x",
     "express"           : "2.5.9",
