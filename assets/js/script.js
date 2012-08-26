@@ -116,8 +116,6 @@ jQuery(function($) {
               memberlist.append('<li><img class="gravatar" src=' + member.photo + ' /><span class="name">' + member.name + '</span></li>');
           }
         }
-
-        memberlist.append('<li>....and <a href="http://www.meetup.com/riversidejs/members">more</a></li>');
       });
 
     }());

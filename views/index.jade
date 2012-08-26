@@ -2,21 +2,14 @@
   .row
     .span1 &nbsp;
     .span6
-      h1 Riverside
-        span .js
+      h1 
+        i.icon-bell
+        span Riverside
+        span.highlight .js
+        //span= info.name
 
-      p JavaScript is a huge part of both ux and server side development today. It's increasingly important to be on the cutting edge. 
-  
-      .well
-        p This group exists to:
-          ul
-            li Connect people of all skill levels who are working with JavaScript.
-            li Facilitate the flow of knowledge from those who know more to those who know less.
-            li Give an arena for sharing all about the latest and greatest javascript thing you just figured out.
-            li Have fun with common minded people in a friendly setting.
+      div.description!= info.description
 
-      p Come and enjoy!
-      
     .span1 &nbsp;
     .span4
       .sidebar
@@ -26,6 +19,9 @@
           span Active Members
 
         ul.unstyled.members
+        .more 
+          i.icon-chevron-right
+          a(href=info.link + 'members') view all #{info.members} #{info.who}
         .chat
           a(href="https://riverside.campfirenow.com/a3544") 
             i.icon-comment
@@ -37,11 +33,7 @@
 
       h2 
         i.icon-time
-        span When
-
-      p We meet, the <a href="http://meetup.com/riversidejs">1st Monday of each month</a>.
-
-      h3 Upcoming Meetups
+        span Upcoming Meetups
 
       each event, i in events
         include events/single
@@ -50,22 +42,18 @@
 
       h2 
         i.icon-map-marker
-        span Where
+        span More Meetups
 
-      p Visit the <a href="http://meetup.com/riversidejs">meetup</a> page for more information on  our meetups.
+      p Visit the 
+        a(href=info.link) Meetup.com 
+        span  page for more information on  our meetups.
         
       hr
-      h3 We talk about
+      h2
+        i.icon-bullhorn 
+        span We talk about
       ul
-        li Node.js
-        li CoffeeScript
-        li jQuery
-        li Backbone.js
-        li Spine.js
-        li Eco
-        li Jade
-        li JavaScript best practices
-        li Phonegap
-        li ..and more!
+        each topic, i in info.topics
+          li= topic.name
 
       p &nbsp;    

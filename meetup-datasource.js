@@ -34,6 +34,28 @@ Meetup.prototype._request = function(path, callback){
 
     });
 }
+
+/* @method getGroupInfo           -Get basic Group Info
+ * @param  callback     Function  -Just a Callback
+ */
+
+ Meetup.prototype.getGroupInfo = function(callback){
+    var path = '/2/groups',
+        that = this;
+
+    path += '?key='             + this.getKey();
+    path += '&group_urlname='    + this.group;
+    path += '&page=1';
+    path += '&sign=true';
+
+    this._request(path, function(res){
+
+        callback(res[0]);
+
+    })
+ };
+
+
 /*
  *  @method convertToISO                - converts epoch time(time in milliseconds to UTC)
  *  @param  epoch          Interger     - the epoch time
@@ -84,9 +106,8 @@ Meetup.prototype.getEvents = function(number, callback){
     
 }
 
-/* @method getMember
- *
- * @param 
+/* @method getMembers
+ * @param  callback     Function  -Just a Callback
  */
 
 Meetup.prototype.getMembers = function(callback){

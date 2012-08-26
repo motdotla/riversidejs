@@ -15,7 +15,12 @@ app     = express.createServer()
 
 # Start Storing Some Locals for App
 # err not being passed to template update might be needed
-app.locals.title = groupname;
+# app.locals.title = groupname;
+
+group.getGroupInfo (info) ->
+  #make a fake locals object for now
+  app.locals.info = info;
+
 
 app.configure ->
   app.set 'views', __dirname + "/views"
@@ -30,7 +35,7 @@ app.get '/', (req, res) ->
   # need to set up middleware so we dont have to request new data every request
   group.getEvents 2, (events) ->
     #console.log(events);
-    res.render 'index.jade', {events : events}
+    res.render 'index.jade', {events : events, info: app.locals.info}
 
 app.get '/jobs', (req, res) ->
   res.send '<h1>Coming Soon!</h1>'

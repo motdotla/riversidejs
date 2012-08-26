@@ -2,10 +2,15 @@ body
   background-color: #fdfdfd;
 
 
-h1 
-  margin: 120px 0 60px 0;
+h1
+  margin: 60px 0;
   font-size: 60px;
-  span 
+
+  i
+    color: #efefef;
+    font-size 100pt;
+
+  .highlight 
     color: #bada55;
   
 
@@ -16,7 +21,7 @@ h2
   margin: 20px 0 10px 0;
 
   i
-    margin: 7px 10px 0 0;
+    margin: 7px 15px 0 0;
 
 a 
   text-decoration: underline;
@@ -34,7 +39,7 @@ a
 
 // sidebar
 .sidebar 
-  margin-top: 10px;
+  margin-top: 60px;
   position: fixed;
 
   h3
@@ -68,7 +73,7 @@ a
       -moz-border-radius: 3px;
       border-radius: 3px;
 
-  .chat
+  div
 
     background: #cfcfc;
     padding: 5px 0;
@@ -98,10 +103,12 @@ a
   background-color: rgb(255,255,255);
   box-shadow: 0px 1px 1px rgba(0,0,0,.3);
   border-radius: 25px;
-  padding: 0 20px;
+  padding: 0 10px;
 
   i
-    margin: 2px 5px 0 -10px;
+
+     margin: 2px 5px 0 0;
+   
 
 
   
@@ -110,8 +117,25 @@ a
 // mobile phones dont like sticky stuff
 @media (max-width: 767px)
 
+  .container
+
+    width: 80%;
+
   .sidebar
     position: relative;
+    margin-top: 10px;
+
+    h3
+      line-height: 36px;
+      font-size: 24px;
+      background: transparent;
+      color: #333;
+      padding: 0;
+
+      i
+        color: #333;
+        margin: 7px 15px 0 0;
+
 
     .members li
       float: left;
@@ -120,11 +144,25 @@ a
       span
         display: none;
 
-    .chat
-
+    div
       clear:both;
-
       display: block;
+
+@media (max-width: 480px)
+
+  h1
+
+    font-size: 50px;
+
+  .container
+
+    width: 90%;
+
+  .rsvp-yes
+
+    span.going
+
+      display: none;
 
 
 

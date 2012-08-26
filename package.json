@@ -1,6 +1,6 @@
 {
   "name"	: "riversidejs",
-  "version"	: "0.0.4",
+  "version"	: "0.0.6",
   "author"	: "people",
   "main"	: "app.coffee",
   "engines"	: {
@@ -15,7 +15,6 @@
     "gravatar"          : "latest",
     "jade"              : "latest",
     "stylus"            : "latest",
-    "formidable"        : "latest",
-    "mu"		: "latest",
+    "formidable"        : "latest"
   }
 }
