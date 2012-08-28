@@ -12,14 +12,20 @@
  * Code by Members of RiversideJS.org
  */
 
-jQuery(function($) {
+jQuery(function($, _) {
+
+    _.templateSettings = {
+      interpolate : /\{\{(.+?)\}\}/g
+    };
+
+    var member_template = _.template($('#member-template').html()),
     
     //Build elements
-    var build = {
+    build = {
       //Build the image to the next meetup
       image : function(venue, i){
 
-        var img = 'http://maps.googleapis.com/maps/api/staticmap?center='+venue.lat+','+venue.lon+'&zoom=15&size=270x170&maptype=roadmap&markers=color:blue%7Clabel:'+(i+1)+'%7C'+venue.lat+','+venue.lon+'&sensor=false',
+        var img = 'http://maps.googleapis.com/maps/api/staticmap?center='+ (venue.lat + .0005) +',' + (venue.lon - .009) + '&zoom=15&size=575x200&maptype=roadmap&markers=color:blue%7Clabel:'+(i+1)+'%7C'+venue.lat+','+venue.lon+'&sensor=false',
         link = 'http://maps.google.com/maps?q='+ venue.address_1 + ' ' + venue.city + ', ' + venue.state + ' ' + venue.zip + '&hl=en&ll='+venue.lat+','+venue.lon+'&spn=0.105618,0.22007&sll='+venue.lat+','+venue.lon+'&sspn=0.013207,0.027509&radius=15000&t=m&z=13';
         // Lets load the images before showing them
         $('<img/>')
@@ -29,7 +35,7 @@ jQuery(function($) {
           //instead of adding an image lets just load it and set as background then push to the corner
           .load(function(){
             $('.event-'+ i)
-              .css('background', 'url(' + img + ') top right no-repeat')
+              .css('background', 'url(' + img + ') right bottom no-repeat')
               .find('.meta')
               .append(' | <a href="' + link + '">Larger Map</a>');
           });
@@ -90,6 +96,7 @@ jQuery(function($) {
       }
 
     }, 
+    // @method init fires immediatly 
     init = (function(){
 
       $('.well.event').each(function(i){
@@ -105,19 +112,30 @@ jQuery(function($) {
 
       build.members(function(res){
 
-        var memberlist = $('.members');
-        var members = _.sortBy(res, function(member){ return -member.activity; });
+        var memberlist = $('.members'),
+          members = _.sortBy(res, function(member){ return -member.activity; }),
+          current = 0,
+          next = function(){
 
-        for(var i in members){
-          if (i < 15) {
-            var member = members[i];
+            memberlist.find('.member').eq(current).addClass('ready');
+            current += 1;
 
-            if(member.photo !== null)
-              memberlist.append('<li><img class="gravatar" src=' + member.photo + ' /><span class="name">' + member.name + '</span></li>');
+            if(current < 15){
+              setTimeout(next ,100);
+            }
+          };
+
+          for(var i in members){
+            if (i < 15) {
+              var member = members[i];
+
+              if(member.photo !== null)
+                memberlist.append(member_template(member));
+            }
           }
-        }
+          next();
       });
 
     }());
 
-  }(jQuery));
+  }(jQuery, _));

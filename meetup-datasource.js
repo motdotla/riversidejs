@@ -127,7 +127,8 @@ Meetup.prototype.getMembers = function(callback){
             members.push({
                 name    : member.name, 
                 photo   : (typeof member.photo === 'undefined') ? null : member.photo["thumb_link"],
-                activity: member.visited
+                activity: member.visited,
+                twitter : (typeof member.other_services.twitter === 'undefined') ? false : 'http://twitter.com/' + member.other_services.twitter.identifier.replace('@', '')
             });
         }
 

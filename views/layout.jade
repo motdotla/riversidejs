@@ -16,4 +16,11 @@ head
     != partial('partials/_gauges')
 
     // Zee Javascriptz
+    script(id='member-template', type='text/html')
+      li.member
+        img.gravatar(src='{{ photo }}', alt='{{ name }}')
+        span {{ name }} 
+    
     != js('application')
+
+ 
