@@ -5,13 +5,17 @@
  */
 
 var Meetup  = function(group){
-    this.group      = group;
-    this.url_base   = 'https://api.meetup.com';
+    this.group          = group;
+    this.url_base       = 'https://api.meetup.com';
     //Private Variable? - Sortof
-    var key         = process.env.MEETUPKEY || '15865a185323203c58305f1a7b216c';
+    var key             = process.env.MEETUPKEY || '15865a185323203c58305f1a7b216c';
     // Privledged Function
-    this.getKey     = function(){
+    this.getKey         = function(){
         return key;
+    }
+
+    this.changeGroup    = function(groupname){
+        this.group = groupname;
     }
 },
     request  = require('request');
